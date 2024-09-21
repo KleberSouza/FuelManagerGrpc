@@ -1,0 +1,39 @@
+﻿@model FuelRequest
+@{
+    ViewData["Title"] = "Calculator";
+}
+
+<h1>Calculator</h1>
+
+<form asp-action="Calculator" method="post">
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label asp-for="Etanol"></label>
+                <input asp-for="Etanol" class="form-control" />
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label asp-for="Gasolina"></label>
+                <input asp-for="Gasolina" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    
+
+    @if (ViewData["Pct"] is not null)
+    {
+        <p class="alert alert-primary">@ViewData["Pct"]</p>
+    }
+    @if (ViewData["Message"] is not null)
+    {
+        <p class="alert alert-primary">@ViewData["Message"]</p>
+    }
+
+    <input type="submit" value="Calcular" class="btn btn-primary" />
+
+</form>
